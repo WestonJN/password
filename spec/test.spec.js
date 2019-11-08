@@ -1,5 +1,5 @@
 var test= require ('../src/passwordChecker');
-let password=""
+let password="Jackson.54"
 
 describe('should check if password exists', function(){
     it("password is exists", function(){
@@ -31,6 +31,6 @@ describe('should check if password has at least one digit', function(){
 
 describe('should check if password has at least one special character', function(){
     it("password has at least one special character", function(){
-        expect(password).toMatch(/[!@#$%^&*()]/)
+        expect(password).toMatch(/[!@#$%^&*().{}]/)
     });
 });

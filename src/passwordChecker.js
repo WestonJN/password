@@ -24,10 +24,10 @@ module.exports={
 function passwordIsOk (password){
     if(password == '' && password.length <= 8){
         if(password.match(/[a-z]/) == null || password.match(/[A-Z]/) == null || password.match(/[0-9]/) == null || 
-        password.match(/[!@#$%^&*()~<>?]/ == null)){
-            return false;
+        password.match(/[!@#$%^&*()~<>?{}]/ == null)){
+            return ("Password is not okay");
         }else{
-            return true;
+            return ("Password is okay");
         }
     
     }
