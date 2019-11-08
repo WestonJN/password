@@ -1,36 +1,34 @@
-var test= require ('../test');
-let password="Jackson.21!"
+function passwordIsValid(password){
+    try{
+        if (password == '') throw "Password cannot be empty";
+        if (password.match(/[a-z]/) == null) throw "Password should contain at least on lowercase letter";
+        if (password.match(/[A-Z]/) == null) throw "Password should contain at least on uppercase letter";
+        if (password.match(/[0-9]/) == null) throw "Password should contain at least one digit";
+        if (password.match(/[!@#$%^&*()~<>?]/)== null)throw "Password should contain at least one character";
+        if (password.length <= 8) throw "Password should have more than 8 characters";
+    
+    }
+    catch(error){
+        console.log(error);
+        
+    };
+    
 
-describe('should check if password exists', function(){
-    it("password is exists", function(){
-        expect(test.all().toEqual())
-    });
-});
-describe('should check if password is longer than 8 characters', function(){
-    it("password is longer than 8 characters", function(){
-        expect(test.characterLength().toEqual())
-    });
-});
-describe('should check if password has at least one lowercase letter', function(){
-    it("password has at least one lowercase letter", function(){
-        expect(test.lowercase().toEqual())
-    });
-});
+}
 
-describe('should check if password has at least one uppercase letter', function(){
-    it("password has at least one uppercase letter", function(){
-        expect(test.uppercase().toEqual())
-    });
-});
+module.exports={
+    passwordIsValid,
+    passwordIsOk
+}
 
-describe('should check if password has at least one digit', function(){
-    it("password has at least one digit", function(){
-        expect(test.digit().toEqual())
-    });
-});
-
-describe('should check if password has at least one special character', function(){
-    it("password has at least one special character", function(){
-        expect(test.specialCharacter().toEqual())
-    });
-});
+function passwordIsOk (password){
+    if(password == '' && password.length <= 8){
+        if(password.match(/[a-z]/) == null || password.match(/[A-Z]/) == null || password.match(/[0-9]/) == null || 
+        password.match(/[!@#$%^&*()~<>?]/ == null)){
+            return false;
+        }else{
+            return true;
+        }
+    
+    }
+}
