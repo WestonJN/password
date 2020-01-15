@@ -3,7 +3,7 @@ let password="Jackson.54"
 
 describe('should check if password exists', function(){
     it("password is exists", function(){
-        expect(password)
+        expect(password).not.toBe(" ")
     });
 });
 describe('should check if password is longer than 8 characters', function(){
